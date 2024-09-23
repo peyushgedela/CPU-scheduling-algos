@@ -52,6 +52,13 @@ void sjf(struct Process processes[], int n)
         printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\n", processes[i].pid, processes[i].arrTime, processes[i].burTime,
                processes[i].comTime, processes[i].turnTime, processes[i].waitTime);
     }
+    int avgWT=0, avgTAT=0;
+    for(int i=0;i<n;i++){
+        avgWT+=processes[i].waitTime;
+        avgTAT+=processes[i].turnTime;
+    }
+    printf("\nAverage Waiting Time : %f\n",(float)avgWT/n);
+    printf("Average Turn Around Time : %f\n",(float)avgTAT/n);
 }
 
 int main()
